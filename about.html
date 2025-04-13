@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        /* Root Variables for Consistency */
+        :root {
+            --background-color: #cbd3d6;
+            --text-color: #2d3436;
+            --header-bg-color: #1e272e;
+            --header-text-color: #fff;
+            --accent-color: #1abc9c;
+            --button-bg-color: #1abc9c;
+            --button-text-color: #fff;
+            --button-hover-bg-color: #16a085;
+            --card-bg-color: #fff;
+            --card-text-color: #2d3436;
+            --footer-bg-color: #34495e;
+            --footer-text-color: #fff;
+            --input-bg-color: #ecf0f1;
+            --input-border-color: #ddd;
+            --box-shadow-color: rgba(0, 0, 0, 0.1);
+            --close-button-bg-color: #e74c3c;
+            --close-button-hover-bg-color: #c0392b;
+        }
+
+        /* Global Styles */
+        body {
+            font-family: "Roboto", sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #9787a7, #49d4ba); /* Purple to Blue */
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensure body takes up the full height of the viewport */
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        main {
+            flex: 1; /* This makes sure the main content section takes the remaining space */
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Header Styles */
+        .main-header {
+            background-color: var(--header-bg-color);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .main-header .logo {
+            color: var(--header-text-color);
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .main-header nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .main-header nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        .main-header nav ul li a {
+            color: var(--header-text-color);
+            font-size: 16px;
+        }
+
+        /* About Section Styles */
+        .about-section {
+            padding: 50px;
+            text-align: center;
+            background-color: var(--card-bg-color);
+            box-shadow: 0 4px 8px var(--box-shadow-color);
+            border-radius: 8px;
+            margin: 20px;
+        }
+
+        .about-section h1 {
+            font-size: 36px;
+            color: var(--accent-color);
+        }
+
+        .about-section p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        /* Footer Styles */
+        .main-footer {
+            background-color: var(--footer-bg-color);
+            color: var(--footer-text-color);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .main-footer a {
+            color: var(--footer-text-color);
+        }
+
+        .main-footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-links a {
+            margin: 0 10px;
+        }
+
+        .contact-info p {
+            margin: 10px 0;
+        }
+
+        /* Media Queries for Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .main-header {
+                text-align: center;
+                padding: 10px;
+            }
+
+            .main-footer {
+                text-align: center;
+            }
+
+            .main-header nav ul {
+                display: flex;
+                justify-content: center;
+                margin: 0;
+            }
+
+            .main-header nav ul li {
+                margin: 0 10px;
+            }
+
+            .about-section h1 {
+                font-size: 30px;
+            }
+
+            .about-section p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="main-header">
+    <div class="logo">X-Price Tracker</div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="categories.html">Categories</a></li>
+            <li><a href="price-alerts.html">Price Alerts</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section class="about-section">
+        <h1>About Us</h1>
+        <p>Welcome to X-Price Tracker! We are dedicated to helping you track prices and find the best deals on your favorite products. Our goal is to make your shopping experience seamless and cost-effective.</p>
+        <p>We offer a wide range of products and our advanced tracking system ensures that you never miss out on a great deal.</p>
+        <p>Thank you for choosing us as your price tracking solution. Happy shopping!</p>
+    </section>
+</main>
+
+<footer class="main-footer">
+    <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Contact Us</a>
+    </div>
+    <div class="contact-info">
+        <p>Customer Support: 2023281975.abhinav@ug.sharda.ac.in</p>
+        <p>Follow us on: 
+            <a href="#">Facebook</a> | 
+            <a href="#">Twitter</a> | 
+            <a href="#">Instagram</a>
+        </p>
+    </div>
+</footer>
+
+</body>
+</html>

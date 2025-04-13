@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wireless Headphones - Price Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            margin: 0; /* Remove default margin */
+        }
+        .header, .footer {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+        }
+        .header h1, .footer p {
+            margin: 0; /* Remove default margin */
+        }
+        .container {
+            width: 80%;
+            margin: 50px auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h2 {
+            color: #333;
+        }
+        canvas {
+            margin-top: 20px;
+        }
+        .buy-now-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        .buy-now-btn:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <div class="header">
+        <h1>Price Tracker</h1>
+    </div>
+
+    <div class="container">
+        <h2>Wireless Headphones</h2>
+        <h3>Current Price: ₹8,999</h3>
+        <p>Price history for the past few months:</p>
+        
+        <!-- Price history chart -->
+        <canvas id="priceChart" width="400" height="200"></canvas>
+        
+        <!-- Amazon/Flipkart links -->
+        <a href="https://www.amazon.in/product-link" class="buy-now-btn" target="_blank">Buy on Amazon</a>
+        <a href="https://www.flipkart.com/product-link" class="buy-now-btn" target="_blank">Buy on Flipkart</a>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer">
+        <p>&copy; 2024 Price Tracker. All rights reserved.</p>
+    </div>
+
+    <!-- Script to generate the price chart -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var ctx = document.getElementById('priceChart').getContext('2d');
+        var priceChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['June', 'July', 'August', 'September', 'October'],
+                datasets: [{
+                    label: 'Price in ₹',
+                    data: [8999, 8500, 8200, 8700, 8999],
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 2,
+                    fill: false
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: false
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

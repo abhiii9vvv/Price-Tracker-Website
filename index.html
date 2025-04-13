@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" type="image/x-icon" href="favicon-16x16.png">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Add Google Fonts to your HTML file -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Price Tracker</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div id="category-modal" class="modal">
+        <div class="modal-content">
+          <span class="close-button">&times;</span>
+          <h2>Select a Category</h2>
+          <ul>
+            <li><a href="#">Electronics</a></li>
+            <li><a href="#">Clothing</a></li>
+            <li><a href="#">Home Appliances</a></li>
+            <li><a href="#">Books</a></li>
+            <li><a href="#">Beauty & Personal Care</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="logo">X-Price Tracker</div>
+      <div class="search-bar">
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Search for products..."
+        />
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#" id="category-button-id">Categories</a></li>
+          <li><a href="#">Price Alerts</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="#footer">Contact</a></li>
+          <!-- Update the Contact link -->
+        </ul>
+      </nav>
+
+      <button class="theme-toggle" id="theme-toggle">Toggle Theme</button>
+    </header>
+
+    <div class="cta-box">
+      <h1>Track Prices and Save Big!</h1>
+      <p>Never miss a deal on your favorite products.</p>
+      <p>Start Tracking Now</p>
+    </div>
+
+    <!-- Featured Products Section -->
+    <!-- Featured Products Section -->
+    <section class="featured-products">
+      <h3>TRENDING PRODUCTS</h3>
+      <div id="product-grid" class="product-grid">
+        <div class="product-card">
+          <h3>Wireless Headphones</h3>
+          <img src="images/HEADPHONES.jpg" alt="Wireless Headphones" />
+          <p>Price: ₹8999</p>
+          <a href="headphones.html">
+            <button class="view-details">View Details</button>
+          </a>
+        </div>
+        <div class="product-card">
+          <h3>Bluetooth Speaker</h3>
+          <img src="images/SPEAKER.jpg" alt="Bluetooth Speaker" />
+          <p>Price: ₹6499</p>
+          <a href="bluetooth-speaker.html">
+            <button class="view-details">View Details</button>
+          </a>
+        </div>
+        <div class="product-card">
+          <h3>4K TV</h3>
+          <img src="images/TV.png" alt="4K TV" />
+          <p>Price: ₹84999</p>
+          <a href="4k-tv.html">
+            <button class="view-details">View Details</button>
+          </a>
+        </div>
+        <div class="product-card">
+          <h3>Smartphone</h3>
+          <img src="images/SMARTPHONE.jpeg" alt="Smartphone" />
+          <p>Price: ₹15999</p>
+          <a href="smartphone.html">
+            <button class="view-details">View Details</button>
+          </a>
+        </div>
+        <div class="product-card">
+          <h3>Laptop</h3>
+          <img src="images/LAP.jpeg" alt="Laptop" />
+          <p>Price: ₹54999</p>
+          <a href="laptop.html">
+            <button class="view-details">View Details</button>
+          </a>
+        </div>
+        <div class="product-card">
+          <h3>Smartwatch</h3>
+          <img src="images/smartwatch.jpeg" alt="Smartwatch" />
+          <p>Price: ₹12999</p>
+          <a href="smartwatch.html">
+            <button class="view-details">View Details</button>
+          </a>
+        </div>
+        <div class="product-card">
+          <h3>Gaming Console</h3>
+          <img src="images/Console.jpeg" alt="Gaming Console" />
+          <p>Price: ₹39999</p>
+          <a href="gaming-console.html">
+            <button class="view-details">View Details</button>
+          </a>
+        </div>
+        <div class="product-card">
+          <h3>Tablet</h3>
+          <img src="images/tablet.jpeg" alt="Tablet" />
+          <p>Price: ₹22999</p>
+          <a href="tablet.html">
+            <button class="view-details">View Details</button>
+          </a>
+        </div>
+        <div class="product-card">
+          <h3>Digital Camera</h3>
+          <img src="images/Camera.jpeg" alt="Digital Camera" />
+          <p>Price: ₹45999</p>
+          <a href="digital-camera.html">
+            <button class="view-details">View Details</button>
+          </a>
+        </div>
+        <div class="product-card">
+          <h3>Drone</h3>
+          <img src="images/Drone.jpeg" alt="Drone" />
+          <p>Price: ₹64999</p>
+          <a href="drone.html">
+            <button class="view-details">View Details</button>
+          </a>
+        </div>
+        <div class="product-card">
+          <h3>Home Theater System</h3>
+          <img src="images/home_theater.jpeg" alt="Home Theater System" />
+          <p>Price: ₹34999</p>
+          <a href="home-theater.html">
+            <button class="view-details">View Details</button>
+          </a>
+        </div>
+        <div class="product-card">
+          <h3>Fitness Tracker</h3>
+          <img src="images/fit_tracker.jpeg" alt="Fitness Tracker" />
+          <p>Price: ₹4999</p>
+          <a href="fitness-tracker.html">
+            <button class="view-details">View Details</button>
+          </a>
+        </div>
+        <div class="product-card">
+          <h3>VR Headset</h3>
+          <img src="images/VR.jpeg" alt="VR Headset" />
+          <p>Price: ₹29999</p>
+          <a href="vr-headset.html">
+            <button class="view-details">View Details</button>
+          </a>
+        </div>
+        <div class="product-card">
+          <h3>Smart Home Assistant</h3>
+          <img src="images/home_ass.jpeg" alt="Smart Home Assistant" />
+          <p>Price: ₹7999</p>
+          <a href="smart-home-assistant.html">
+            <button class="view-details">View Details</button>
+          </a>
+        </div>
+        <div class="product-card">
+          <h3>Portable Charger</h3>
+          <img src="images/portable.jpeg" alt="Portable Charger" />
+          <p>Price: ₹1999</p>
+          <a href="portable-charger.html">
+            <button class="view-details">View Details</button>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Details Section -->
+    <section class="product-details" id="product-details">
+      <button class="close-button" id="close-details">&times;</button>
+      <h2 id="product-name">Product Name</h2>
+      <img id="product-image" src="" alt="Product Image" />
+      <p id="product-price"></p>
+      <h3>Price History</h3>
+      <canvas id="product-price-chart"></canvas>
+    </section>
+
+    <!-- Price Tracking Section -->
+    <section class="price-tracking">
+      <h2>Track a Product</h2>
+      <input type="text" placeholder="Enter product URL or name" />
+      <button>Set Alert</button>
+      <div class="tracking-list">
+        <div class="tracking-item">
+          <p>Product Name</p>
+          <p>Current Price: ₹7500</p>
+          <p>Desired Price: ₹6000</p>
+          <p>Status: Tracking</p>
+        </div>
+      </div>
+    </section>
+
+    <footer id="footer">
+      <!-- Add the ID "footer" -->
+      <div id="about_us" ="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Contact Us</a>
+      </div>
+      <div class="contact-info">
+        <p>Customer Support: 2023281975.abhinav@ug.sharda.ac.in</p>
+        <p>
+          Follow us on: <a href="#">Facebook</a> | <a href="#">Twitter</a> |
+          <a href="#">Instagram</a>
+        </p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

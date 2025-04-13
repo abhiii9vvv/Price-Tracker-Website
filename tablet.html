@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablet - Details</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <style>
+        :root {
+            --header-bg-color: #121212;
+            --header-text-color: #ffffff;
+            --footer-bg-color: #121212;
+            --footer-text-color: #ffffff;
+            --button-bg-color: #28a745;
+            --button-hover-bg-color: #218838;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header, .footer {
+            background-color: var(--header-bg-color);
+            color: var(--header-text-color);
+            text-align: center;
+            padding: 15px 0;
+            font-size: 18px;
+        }
+
+        .navbar {
+            background-color: var(--header-bg-color);
+        }
+
+        .navbar a {
+            color: var(--header-text-color);
+            padding: 10px 15px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .container {
+            flex: 1;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+        }
+
+        .product-details {
+            flex: 1;
+            padding: 20px;
+            max-width: 400px;
+        }
+
+        .product-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .product-header img {
+            max-width: 200px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .product-header h1 {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+
+        .price-info {
+            font-size: 20px;
+            color: #28a745;
+            margin: 5px 0;
+        }
+
+        .buy-now-btn {
+            margin-top: 10px;
+            padding: 8px 12px;
+            background-color: var(--button-bg-color);
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .buy-now-btn:hover {
+            background-color: var(--button-hover-bg-color);
+        }
+
+        .chart-container {
+            flex: 1;
+            padding: 20px;
+            margin-left: 20px;
+        }
+
+        canvas {
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #777;
+        }
+
+        .time-range-btns {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .time-range-btns button {
+            margin: 5px;
+            padding: 8px 15px;
+            border-radius: 5px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+        }
+
+        .time-range-btns button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header with Navigation -->
+    <div class="header">
+        <h1>X-Price Tracker</h1>
+        <nav class="navbar">
+            <a href="#">Home</a>
+            <a href="#">Categories</a>
+            <a href="#">Price Alerts</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+    </div>
+
+    <!-- Product Section -->
+    <div class="container">
+        <!-- Product Details Section -->
+        <div class="product-details">
+            <div class="product-header">
+                <h1>Tablet</h1>
+                <img src="images/TABLET.jpeg" alt="Tablet">
+                <p class="price-info">Price: ₹22,999</p>
+                <p>Powerful and portable tablet for work, entertainment, and more.</p>
+                
+                <!-- Amazon/Flipkart links -->
+                <a href="https://www.amazon.in/product-link" class="buy-now-btn" target="_blank">Buy on Amazon</a>
+                <a href="https://www.flipkart.com/product-link" class="buy-now-btn" target="_blank">Buy on Flipkart</a>
+            </div>
+        </div>
+
+        <!-- Price History Chart -->
+        <div class="chart-container">
+            <h3>Price History</h3>
+            <canvas id="priceChart" width="400" height="200"></canvas>
+
+            <!-- Time Range Buttons -->
+            <div class="time-range-btns">
+                <button onclick="updateChart('week')">Last Week</button>
+                <button onclick="updateChart('month')">Last Month</button>
+                <button onclick="updateChart('year')">Last Year</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        &copy; 2024 Your Store Name. All rights reserved.
+    </div>
+
+    <!-- Script to generate the price chart -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var ctx = document.getElementById('priceChart').getContext('2d');
+        var priceChart;
+
+        var priceData = {
+            week: [22999, 21999, 22499, 22900, 22500],
+            month: [22999, 22799, 22599, 22399, 22199, 21999, 22500],
+            year: [24999, 23999, 23599, 22999, 22499, 22000, 21500, 21999, 22500, 22900]
+        };
+
+        function createChart(data, label, labels) {
+            if (priceChart) priceChart.destroy();
+
+            priceChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: label,
+                        data: data,
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 2,
+                        fill: true,
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)'
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: false
+                        }
+                    }
+                }
+            });
+        }
+
+        createChart(priceData.week, 'Price in ₹', ['Mon', 'Tue', 'Wed', 'Thu', 'Fri']);
+
+        function updateChart(range) {
+            let label = '';
+            let labels = [];
+            let data = [];
+
+            if (range === 'week') {
+                label = 'Last Week';
+                labels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
+                data = priceData.week;
+            } else if (range === 'month') {
+                label = 'Last Month';
+                labels = ['Week 1', 'Week 2', 'Week 3', 'Week 4'];
+                data = priceData.month;
+            } else if (range === 'year') {
+                label = 'Last Year';
+                labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                data = priceData.year;
+            }
+
+            createChart(data, label, labels);
+        }
+    </script>
+
+    <!-- Bootstrap JS for responsiveness -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

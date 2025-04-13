@@ -1,0 +1,553 @@
+
+
+:root {
+  --background-color: #cbd3d6;
+  --text-color: #2d3436;
+  --header-bg-color: #1e272e;
+  --header-text-color: #fff;
+  --accent-color: #1abc9c;
+  --button-bg-color: #1abc9c;
+  --button-text-color: #fff;
+  --button-hover-bg-color: #16a085;
+  --card-bg-color: #fff;
+  --card-text-color: #2d3436;
+  --footer-bg-color: #34495e;
+  --footer-text-color: #fff;
+  --input-bg-color: #ecf0f1;
+  --input-border-color: #ddd;
+  --box-shadow-color: rgba(0, 0, 0, 0.1);
+  --close-button-bg-color: #e74c3c;
+  --close-button-hover-bg-color: #c0392b;
+}
+
+.dark-theme {
+  --background-color: #1e1e1e;
+  --text-color: #e1e1e1;
+  --header-bg-color: #121212;
+  --header-text-color: #ffffff;
+  --accent-color: #00b894;
+  --button-bg-color: #00b894;
+  --button-text-color: #ffffff;
+  --button-hover-bg-color: #019874;
+  --card-bg-color: #1d2a35; /* Updated card background color */
+  --card-text-color: #e1e1e1;
+  --footer-bg-color: #121212;
+  --footer-text-color: #e1e1e1;
+  --input-bg-color: #2a2a2a;
+  --input-border-color: #555;
+  --box-shadow-color: rgba(255, 255, 255, 0.1);
+  --close-button-bg-color: #ff7675;
+  --close-button-hover-bg-color: #d63031;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, #9787a7, #49d4ba); /* Purple to Blue */
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: var(--header-bg-color);
+  color: var(--header-text-color);
+  border-bottom: 2px solid #1abc9c;
+  box-shadow: 0 4px 10px var(--box-shadow-color);
+  position: fix;
+  z-index: 100;
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+header .logo {
+  margin-left: 50px;
+  font-size: 15px;
+  font-weight: bold;
+  font-family: "Pacifico", cursive;
+  color: var(--accent-color);
+  transition: transform 0.3s, color 0.3s;
+}
+
+header .logo:hover {
+  transform: scale(1.1);
+}
+
+header .search-bar input {
+  margin-left: 100px;
+  padding: 10px 20px;
+  width: 350px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  background-color: var(--input-bg-color);
+  transition: box-shadow 0.3s, background-color 0.3s;
+  color: var(--text-color);
+}
+
+header .search-bar input::placeholder {
+  color: #7f8c8d;
+}
+
+header .search-bar input:focus {
+  box-shadow: 0 0 10px rgba(26, 188, 156, 0.4);
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+}
+
+header nav ul li {
+  position: relative;
+}
+
+header nav ul li a {
+  color: var(--header-text-color);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 15px;
+  padding: 10px 15px;
+  display: block;
+  transition: color 0.3s, background-color 0.3s, border-radius 0.3s;
+}
+
+header nav ul li a:hover {
+  color: var(--header-text-color);
+  background-color: var(--accent-color);
+  border-radius: 10px;
+}
+
+header nav ul li::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 3px;
+  background-color: var(--accent-color);
+  bottom: 0;
+  left: 0;
+  transition: width 0.3s;
+}
+
+header nav ul li:hover::after {
+  width: 100%;
+}
+
+header .user-profile img {
+  margin-right: 1800px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent-color);
+  transition: box-shadow 0.3s;
+}
+
+header .user-profile img:hover {
+  box-shadow: 0 0 10px rgba(26, 188, 156, 0.6);
+}
+
+/* Theme Toggle Button Styles */
+.theme-toggle {
+  margin-left: 10px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 15px;
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.theme-toggle:hover {
+  background-color: var(--button-hover-bg-color);
+}
+
+.cta-box {
+  background-color: var(--accent-color);
+  color: #fff;
+  text-align: center;
+  padding: 20px 30px; /* Reduced padding for a smaller box */
+  max-width: 800px;
+  max-height: 200px;
+  /* Optional: limits the width */
+  margin: 0 auto; /* Center the box */
+  border-radius: 15px;
+  box-shadow: 0 4px 10px var(--box-shadow-color);
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+.cta-box h1 {
+  font-size: 24px; /* Adjusted font size */
+  margin-bottom: 10px;
+}
+
+.cta-box p {
+  font-size: 16px; /* Adjusted font size */
+  margin-bottom: 20px;
+}
+
+.cta-box button {
+  background-color: #fff;
+  color: var(--accent-color);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.cta-box button:hover {
+  background-color: var(--button-hover-bg-color);
+  color: #fff;
+}
+
+.featured-products,
+.price-tracking,
+.price-history {
+  padding: 40px 20px;
+}
+
+.featured-products h2,
+.price-tracking h2,
+.price-history h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: var(--accent-color);
+  transition: color 0.3s;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.product-card {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px var(--box-shadow-color);
+  background-color: var(--card-bg-color);
+  text-align: center;
+  padding: 20px;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+}
+
+.product-card img {
+  max-width: 130px;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.product-card h3 {
+  font-size: 20px;
+  margin: 15px 0;
+  color: var(--card-text-color);
+  transition: color 0.3s;
+}
+
+.product-card p {
+  font-size: 16px;
+  color: #7f8c8d;
+}
+
+.product-card button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 16px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.product-card button:hover {
+  background-color: var(--button-hover-bg-color);
+}
+
+.price-tracking input {
+  padding: 10px 15px;
+  width: calc(100% - 160px);
+  border-radius: 20px;
+  border: 1px solid var(--input-border-color);
+  margin-right: 10px;
+  outline: none;
+  background-color: var(--input-bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, border 0.3s, color 0.3s;
+}
+
+.price-tracking input::placeholder {
+  color: #7f8c8d;
+}
+
+.price-tracking button {
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.price-tracking button:hover {
+  background-color: var(--button-hover-bg-color);
+}
+
+.tracking-list .tracking-item {
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin-top: 15px;
+  background-color: var(--card-bg-color);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.price-history {
+  background-color: var(--card-bg-color);
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 4px 20px var(--box-shadow-color);
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+/* **Updated CSS to ensure unique canvas sizes and restrict growth** */
+#product-price-chart,
+#price-history-chart {
+  max-width: 100%;
+  max-height: 400px; /* Prevents chart from getting too large */
+  width: 100% !important;
+  height: 400px !important; /* Ensures consistent height */
+}
+
+.filters button {
+  padding: 10px 15px;
+  margin: 10px 5px;
+  cursor: pointer;
+  background-color: var(--button-bg-color);
+  border: none;
+  border-radius: 20px;
+  color: var(--button-text-color);
+  font-size: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+.filters button:hover {
+  background-color: var(--button-hover-bg-color);
+}
+
+footer {
+  background-color: var(--footer-bg-color);
+  color: var(--footer-text-color);
+  padding: 30px 20px;
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+footer a {
+  color: var(--accent-color);
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+footer .contact-info p {
+  margin: 5px 0;
+}
+
+.product-details {
+  padding: 40px;
+  display: none;
+  background-color: var(--card-bg-color);
+  border-radius: 10px;
+  box-shadow: 0 4px 20px var(--box-shadow-color);
+  position: relative;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.product-details img {
+  max-width: 300px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* **New CSS to style the close button** */
+.close-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: var(--close-button-bg-color);
+  border: none;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.close-button:hover {
+  background-color: var(--close-button-hover-bg-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  header .search-bar input {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .hero button {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+
+  .filters button {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+}
+
+#search-input {
+  padding: 8px;
+  margin-right: 10px;
+  width: 200px;
+}
+/* Modal Background */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Dimmed background */
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: var(--card-bg-color); /* Use the card background color */
+  color: var(--text-color); /* Match text color */
+  padding: 20px 30px; /* More padding for a polished feel */
+  border-radius: 15px;
+  text-align: center;
+  width: 80%;
+  max-width: 500px; /* Adjust max-width */
+  box-shadow: 0 4px 20px var(--box-shadow-color); /* Subtle shadow for depth */
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* Modal Content Header */
+.modal-content h2 {
+  font-size: 24px;
+  color: var(--accent-color); /* Use accent color */
+  margin-bottom: 20px;
+}
+
+/* Modal Content Paragraph */
+.modal-content p {
+  font-size: 16px;
+  color: var(--card-text-color); /* Match text color to card text */
+  margin-bottom: 20px;
+}
+
+/* Modal Button */
+.modal-content button {
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Button Hover Effect */
+.modal-content button:hover {
+  background-color: var(--button-hover-bg-color);
+  color: #fff;
+}
+
+/* Close Button */
+.close-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: var(--close-button-bg-color);
+  border: none;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.close-button:hover {
+  background-color: var(--close-button-hover-bg-color);
+}
+
+/* Pop-up Modal Appearance Transition */
+.modal.show {
+  display: flex;
+  opacity: 1;
+  transform: scale(1.1); /* Slightly zooms in when it appears */
+}
+
+.modal.hide {
+  opacity: 0;
+  transform: scale(0.9); /* Slightly zooms out when it disappears */
+}
+
+html {
+  scroll-behavior: smooth; /* Enables smooth scrolling */
+}
+

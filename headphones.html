@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Price Tracker - Wireless Headphones</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <style>
+        :root {
+            --header-bg-color: #121212; /* Darker header background */
+            --header-text-color: #ffffff; /* White header text */
+            --footer-bg-color: #121212; /* Darker footer background */
+            --footer-text-color: #ffffff; /* White footer text */
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            height: 100vh; /* Full height of the viewport */
+            display: flex;
+            flex-direction: column;
+        }
+        .header, .footer {
+            background-color: var(--header-bg-color); /* Apply variable */
+            color: var(--header-text-color); /* Apply variable */
+            text-align: center;
+            padding: 15px 0;
+            font-size: 18px;
+        }
+        .container {
+            flex: 1; /* Allow the container to grow and fill the space */
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex; /* Use Flexbox for layout */
+        }
+        .product-details {
+            flex: 1; /* Left side takes 1/2 space */
+            padding: 20px;
+            max-width: 400px; /* Limit the width of the product details */
+        }
+        .product-header {
+            display: flex;
+            flex-direction: column; /* Stack elements vertically */
+            align-items: center; /* Center the items */
+        }
+        .product-header img {
+            max-width: 200px; /* Smaller image size */
+            border-radius: 8px;
+            margin-bottom: 10px; /* Space below the image */
+        }
+        .product-header h1 {
+            font-size: 20px; /* Smaller title font size */
+            margin: 10px 0;
+        }
+        .price-info {
+            font-size: 20px; /* Smaller price font size */
+            color: #28a745;
+            margin: 5px 0; /* Space around price */
+        }
+        .buy-now-btn {
+            margin-top: 10px;
+            padding: 8px 12px; /* Smaller button padding */
+            background-color: #28a745;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px; /* Smaller button font size */
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .buy-now-btn:hover {
+            background-color: #218838;
+        }
+        .chart-container {
+            flex: 1; /* Right side takes remaining space */
+            padding: 20px;
+            margin-left: 20px; /* Space between the two sections */
+        }
+        .time-range-btns {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .time-range-btns button {
+            margin: 5px;
+            padding: 8px 15px;
+            border-radius: 5px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+        }
+        .time-range-btns button:hover {
+            background-color: #0056b3;
+        }
+        .sticky-buy {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #28a745;
+            color: white;
+            padding: 15px;
+            border-radius: 50px;
+            font-size: 18px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .sticky-buy:hover {
+            background-color: #218838;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="header">
+        <h1>Price Tracker</h1>
+    </div>
+
+    <!-- Product Section -->
+    <div class="container">
+        <!-- Product Details Section -->
+        <div class="product-details">
+            <div class="product-header">
+                <img src="images/HEADPHONES.jpg" alt="Wireless Headphones">
+                <h1>Wireless Headphones</h1>
+                <p class="price-info">Current Price: ₹8,999</p>
+                <a href="https://www.amazon.com/Sony-WH-1000XM5-Canceling-Headphones-Hands-Free/dp/B09XSDMT4F/ref=sr_1_2_sspa?crid=1BRQQZY3LN0YJ&dib=eyJ2IjoiMSJ9.xJRGloJU-APgd1Vzr5Iln3GB-gv9EX-c9Lod3xz90h9UCYMCDq9TEDMZS9i9KkhWqVT0TUx_KqXOKpe9QsutjNY29vkD8xWpmBo8q_T3iUquWyoucE8Wq9fLNTSCQoYZREfIr7JVd6plzghMxAsKosD24oyB43DJwm_LqFvWdA177Xr7BlQTOV_dkLGDb2yml2ENteMUj9OCv5_PnIuaIuJZjWFbXdxwmlcb7s9c7Zg.U6tXHEmp1Ic_X4_3TGg6s0lEtEFZS1ZWGVCFewoV-H8&dib_tag=se&keywords=wireless%2Bheadphones%2Bwhite&qid=1732784948&sprefix=wireless%2Bheadphones%2Bwh%2Caps%2C319&sr=8-2-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1" class="buy-now-btn" target="_blank">Buy on Amazon</a>
+                <a href="https://www.flipkart.com/product-link" class="buy-now-btn" target="_blank">Buy on Flipkart</a>
+            </div>
+        </div>
+
+        <!-- Price History Chart -->
+        <div class="chart-container">
+            <h3>Price History</h3>
+            <canvas id="priceChart"></canvas>
+
+            <!-- Time Range Buttons -->
+            <div class="time-range-btns">
+                <button onclick="updateChart('week')">Last Week</button>
+                <button onclick="updateChart('month')">Last Month</button>
+                <button onclick="updateChart('year')">Last Year</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Buy Now Button -->
+    <a href="https://www.amazon.in/product-link" class="sticky-buy">Buy Now</a>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2024 Price Tracker. All rights reserved.</p>
+    </div>
+
+    <!-- Script to generate the price chart -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var ctx = document.getElementById('priceChart').getContext('2d');
+        var priceChart;
+
+        // Price data for different time ranges
+        var priceData = {
+            week: [8900, 8999, 8800, 8700, 8999],
+            month: [8999, 8500, 8200, 8700, 8999],
+            year: [9999, 9500, 9200, 8900, 8999]
+        };
+
+        // Labels for different time ranges
+        var labels = {
+            week: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+            month: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5'],
+            year: ['Jan', 'Feb', 'Mar', 'Apr', 'May']
+        };
+
+        // Function to create/update the chart
+        function createChart(data, label, timeLabel) {
+            if (priceChart) priceChart.destroy(); // Destroy existing chart if any
+
+            priceChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: timeLabel,
+                    datasets: [{
+                        label: label,
+                        data: data,
+                        borderColor: getRandomColor(), // Random color for each dataset
+                        borderWidth: 2,
+                        fill: true,
+                        backgroundColor: getRandomColor(0.2) // Transparent fill color
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: false
+                        }
+                    }
+                }
+            });
+        }
+
+        // Function to get random color
+        function getRandomColor(alpha = 1) {
+            const r = Math.floor(Math.random() * 255);
+            const g = Math.floor(Math.random() * 255);
+            const b = Math.floor(Math.random() * 255);
+            return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+        }
+
+        // Initialize chart with default (monthly) data
+        createChart(priceData.month, 'Price in ₹', labels.month);
+
+        // Function to update chart based on selected time range
+        function updateChart(range) {
+            let label = '';
+            let timeLabel = [];
+            if (range === 'week') {
+                label = 'Last Week';
+                timeLabel = labels.week;
+                createChart(priceData.week, label, timeLabel);
+            } else if (range === 'month') {
+                label = 'Last Month';
+                timeLabel = labels.month;
+                createChart(priceData.month, label, timeLabel);
+            } else if (range === 'year') {
+                label = 'Last Year';
+                timeLabel = labels.year;
+                createChart(priceData.year, label, timeLabel);
+            }
+        }
+    </script>
+
+    <!-- Bootstrap JS for responsiveness -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
