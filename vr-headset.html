@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VR Headset - Details</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <style>
+        :root {
+            --header-bg-color: #121212;
+            --header-text-color: #ffffff;
+            --footer-bg-color: #121212;
+            --footer-text-color: #ffffff;
+            --button-bg-color: #28a745;
+            --button-hover-bg-color: #218838;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header, .footer {
+            background-color: var(--header-bg-color);
+            color: var(--header-text-color);
+            text-align: center;
+            padding: 15px 0;
+            font-size: 18px;
+        }
+
+        .navbar {
+            background-color: var(--header-bg-color);
+        }
+
+        .navbar a {
+            color: var(--header-text-color);
+            padding: 10px 15px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .container {
+            flex: 1;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+        }
+
+        .product-details {
+            flex: 1;
+            padding: 20px;
+            max-width: 400px;
+        }
+
+        .product-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .product-header img {
+            max-width: 200px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .product-header h1 {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+
+        .price-info {
+            font-size: 20px;
+            color: #28a745;
+            margin: 5px 0;
+        }
+
+        .buy-now-btn {
+            margin-top: 10px;
+            padding: 8px 12px;
+            background-color: var(--button-bg-color);
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .buy-now-btn:hover {
+            background-color: var(--button-hover-bg-color);
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header with Navigation -->
+    <div class="header">
+        <h1>X-Price Tracker</h1>
+        <nav class="navbar">
+            <a href="#">Home</a>
+            <a href="#">Categories</a>
+            <a href="#">Price Alerts</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+    </div>
+
+    <!-- Product Section -->
+    <div class="container">
+        <!-- Product Details Section -->
+        <div class="product-details">
+            <div class="product-header">
+                <h1>VR Headset</h1>
+                <img src="images/VR.jpeg" alt="VR Headset">
+                <p class="price-info">Price: ₹29,999</p>
+                <p>Experience immersive virtual reality with this advanced VR headset.</p>
+                
+                <!-- Amazon/Flipkart links -->
+                <a href="https://www.amazon.in/product-link" class="buy-now-btn" target="_blank">Buy on Amazon</a>
+                <a href="https://www.flipkart.com/product-link" class="buy-now-btn" target="_blank">Buy on Flipkart</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        &copy; 2024 Your Store Name. All rights reserved.
+    </div>
+
+    <!-- Bootstrap JS for responsiveness -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
