@@ -6,17 +6,14 @@ const handler = NextAuth(authOptions)
 export { handler as GET, handler as POST }
 
 // Fallback handler for when NextAuth fails
-export async function fallbackHandler() {
-  return new Response(JSON.stringify({ error: "Authentication service unavailable" }), {
-    status: 500,
-    headers: { "Content-Type": "application/json" },
-  })
+// Example with error handling inside the handler
+export async function GET(request: Request) {
+  try {
+    return await fallbackHandler(request);
+  } catch (error) {
+    console.error("NextAuth configuration error:", error);
+    return new Response("Auth error", { status: 500 });
+  }
 }
 
-// Wrap the original exports with a try-catch block
-try {
-  // Use the fallback handler if NextAuth fails
-  export { fallbackHandler as GET, fallbackHandler as POST }
-} catch (error) {
-  console.error("NextAuth configuration error:", error)
-}
+export const POST = GET;
